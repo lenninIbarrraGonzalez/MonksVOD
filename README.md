@@ -1,60 +1,121 @@
-# Monks VOD - Video Streaming Platform
+# 🎬 Monks VOD - Professional Video Streaming Platform
 
-A modern, production-ready Video on Demand (VOD) streaming application built with React 19, TypeScript, and HLS.js. Features adaptive bitrate streaming, custom video controls, and persistent state management with a sleek design inspired by Monks.com.
+<div align="center">
 
-![Tech Stack](https://img.shields.io/badge/React-19-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
-![Tailwind](https://img.shields.io/badge/Tailwind-4.1-blue)
-![HLS.js](https://img.shields.io/badge/HLS.js-1.6-green)
+![Monks VOD Demo](./src/assets/demoDesktop.gif)
 
-## Features
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-black?style=for-the-badge)](https://monks-vod.vercel.app/)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![HLS.js](https://img.shields.io/badge/HLS.js-1.6-ff6b35?style=for-the-badge)](https://github.com/video-dev/hls.js)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-### Video Player
-- ✅ **Adaptive Streaming**: HLS support with automatic quality detection
-- ✅ **Browser Compatibility**: Native HLS for Safari, HLS.js for Chrome/Firefox/Edge
-- ✅ **Custom Controls**: Play/pause, progress bar, volume, quality selector, fullscreen
-- ✅ **Picture-in-Picture**: Floating mini-player mode
-- ✅ **Auto-hide Controls**: Controls fade out during playback
-- ✅ **Error Handling**: Automatic reconnection and graceful error messages
+**[View Live Demo →](https://monks-vod.vercel.app/)**
 
-### User Experience
-- ✅ **Video Library**: Grid view with thumbnails and descriptions
-- ✅ **Watch History**: Tracks last 3 videos watched
-- ✅ **Persistent State**: Remembers volume, last video, and viewing history
-- ✅ **Responsive Design**: Works on desktop, tablet, and mobile
-- ✅ **Loading Indicators**: Visual feedback during buffering
-- ✅ **Smooth Animations**: Polished transitions and interactions
-- ✅ **Real-time Widgets**: Live weather and cryptocurrency data
-  - **Weather Widget**: Current conditions, temperature, humidity, wind speed (auto-updates every 10 min)
-  - **Crypto Widget**: Top 5 cryptocurrencies with live prices and 24h changes (auto-updates every 30 sec)
+A modern, production-ready Video on Demand (VOD) streaming platform built with React 19, TypeScript, and HLS.js. Features professional-grade adaptive bitrate streaming, custom controls, and real-time widgets with a sleek design inspired by Monks.com.
 
-### Design
-- ✅ **Monks-Inspired Theme**: Purple-accented dark theme
-- ✅ **Glassmorphism Effects**: Modern translucent UI elements
-- ✅ **Professional Typography**: Clean, readable font hierarchy
-- ✅ **Accessibility**: ARIA labels and keyboard-friendly controls
+</div>
 
-## Tech Stack
+---
 
-- **Frontend Framework**: React 19 with TypeScript
-- **Build Tool**: Vite 7
-- **Styling**: Tailwind CSS 4
-- **Video Streaming**: HLS.js
-- **State Management**: Context API + React Hooks
-- **Testing**: Vitest + Testing Library
-- **Icons**: React Icons
+## ✨ Key Features
 
-## Getting Started
+### 🎥 Professional Video Streaming
+- **Adaptive Bitrate Streaming (ABR)**: Automatic quality adjustment based on network conditions using HLS protocol
+- **Multi-Quality Support**: Seamless switching between 480p, 720p, 1080p, and Auto modes
+- **Cross-Browser Compatibility**: Native HLS for Safari/iOS, HLS.js for Chrome/Firefox/Edge
+- **Network Resilience**: Automatic reconnection and error recovery on network failures
+- **Buffer Management**: Smart buffering with configurable back-buffer (90s) and max buffer (30s)
+
+### 🎛️ Advanced Video Controls
+- **Custom Player UI**: Fully-featured control bar with modern design
+- **Progress Scrubbing**: Click-to-seek and drag-to-seek with real-time preview
+- **Volume Control**: Slider with hover effect and mute toggle
+- **Quality Selector**: Dynamic quality menu based on available streams
+- **Picture-in-Picture**: Floating mini-player mode (browser support required)
+- **Fullscreen Mode**: Native fullscreen API integration
+- **Auto-hide Controls**: Controls fade out during playback, reappear on interaction
+- **Keyboard Shortcuts**: Spacebar for play/pause, arrows for seeking
+
+### 💾 State Persistence & History
+- **Video History**: Tracks last 3 watched videos with localStorage persistence
+- **Last Played Video**: Automatically loads your last video on return
+- **Volume Memory**: Remembers your preferred volume level
+- **Cross-Tab Sync**: State syncs across multiple browser tabs
+
+### 📊 Real-Time Widgets
+- **Weather Widget**:
+  - Live weather data from OpenWeatherMap API
+  - Displays temperature, feels-like, humidity, wind speed
+  - Auto-updates every 10 minutes
+  - Supports any city worldwide
+
+- **Crypto Widget**:
+  - Top 5 cryptocurrencies (BTC, ETH, BNB, ADA, SOL)
+  - Real-time prices from CoinGecko API
+  - 24h price change with trend indicators
+  - Auto-updates every 30 seconds
+
+### 🎨 Modern UI/UX
+- **Monks-Inspired Design**: Purple-accented dark theme (#3C0C60)
+- **Glassmorphism Effects**: Translucent UI elements with backdrop blur
+- **Responsive Layout**: Optimized for desktop, tablet, and mobile
+- **Loading States**: Skeleton loaders and buffer indicators
+- **Error Boundaries**: Graceful error handling with user-friendly messages
+- **Smooth Animations**: Polished transitions and micro-interactions
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+- **[React 19](https://react.dev)** - Latest React with concurrent rendering
+- **[TypeScript 5.9](https://www.typescriptlang.org/)** - Full type safety
+- **[Vite 7](https://vitejs.dev)** - Lightning-fast build tool
+- **[Tailwind CSS 4](https://tailwindcss.com)** - Modern utility-first CSS
+
+### Video Streaming Stack
+- **[HLS.js 1.6](https://github.com/video-dev/hls.js)** - Industry-standard HLS player
+  - MSE (Media Source Extensions) for adaptive streaming
+  - Worker-based parsing for better performance
+  - Fragment retry logic and network error recovery
+  - Automatic level switching based on bandwidth
+- **Native HLS** - Safari/iOS native support
+- **H.264 Video Codec** - Universal browser compatibility
+- **AAC Audio Codec** - High-quality audio streaming
+
+### State Management & Hooks
+- **Context API** - Global state management
+- **Custom Hooks**:
+  - `useHLS`: HLS.js integration and quality management
+  - `useVideoControls`: Video element manipulation
+  - `useLocalStorage`: Persistent storage with sync
+  - `useWeather`: Weather API integration
+  - `useCrypto`: Cryptocurrency API integration
+
+### Testing & Quality
+- **[Vitest 4](https://vitest.dev)** - Next-generation testing framework
+- **[Testing Library](https://testing-library.com)** - React component testing
+- **Coverage**: 75 tests passing (100% success rate)
+- **ESLint 9** - Code quality and consistency
+
+### APIs
+- **[OpenWeatherMap API](https://openweathermap.org/api)** - Weather data
+- **[CoinGecko API](https://www.coingecko.com/en/api)** - Cryptocurrency prices
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- Node.js 18+
-- npm or yarn
+- **Node.js** 18+ or higher
+- **npm** or **yarn** package manager
 
 ### Installation
 
-1. **Clone or navigate to the repository**
+1. **Clone the repository**
 ```bash
+git clone <repository-url>
 cd monks
 ```
 
@@ -63,283 +124,493 @@ cd monks
 npm install
 ```
 
-3. **Configure environment variables (Optional - for Weather Widget)**
+3. **Configure environment variables**
 ```bash
-# Copy the example file
 cp .env.example .env
-
-# Edit .env and add your OpenWeatherMap API key
-# Get a free API key at: https://openweathermap.org/api
 ```
 
-Edit `.env`:
+Edit `.env` and add your API keys:
 ```env
-VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
-VITE_WEATHER_CITY=Madrid  # Or your preferred city
-```
+# OpenWeatherMap API (Free tier)
+# Get your key at: https://openweathermap.org/api
+VITE_OPENWEATHER_API_KEY=your_openweather_api_key
 
-**Note**: The Crypto Widget works without API keys using CoinGecko's free API.
+# Default city for weather
+VITE_WEATHER_CITY=Madrid
+
+# CoinGecko Demo API (Free tier)
+# Get your key at: https://www.coingecko.com/en/api/pricing
+VITE_COINGECKO_API_KEY=your_coingecko_api_key
+```
 
 4. **Start development server**
 ```bash
 npm run dev
 ```
 
-The application will open at `http://localhost:5173`
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Available Scripts
+---
+
+## 📜 Available Scripts
 
 ```bash
 # Development
-npm run dev          # Start dev server with hot reload
+npm run dev              # Start dev server with hot reload (port 5173)
 
 # Production
-npm run build        # Build for production
-npm run preview      # Preview production build
+npm run build            # Build optimized production bundle
+npm run preview          # Preview production build locally
 
 # Testing
-npm run test         # Run tests in watch mode
-npm run test:ui      # Open Vitest UI
-npm run test:coverage # Run tests with coverage
+npm run test             # Run tests in watch mode
+npm run test:ui          # Open Vitest UI dashboard
+npm run test:coverage    # Run tests with coverage report
 
 # Code Quality
-npm run lint         # Run ESLint
+npm run lint             # Run ESLint checks
 ```
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── VideoPlayer/     # Main video player with HLS integration
-│   ├── VideoList/       # Video library grid
-│   ├── Controls/        # Custom player controls
-│   ├── BufferIndicator/ # Loading spinner
-│   ├── ErrorBoundary/   # Error handling
-│   ├── MiniPlayer/      # Picture-in-Picture support
-│   ├── WeatherWidget/   # Real-time weather widget
-│   └── CryptoWidget/    # Real-time cryptocurrency widget
-├── context/
-│   └── VideoContext.tsx # Global state management
-├── hooks/
-│   ├── useHLS.ts        # HLS.js integration hook
-│   ├── useVideoControls.ts # Video element control hook
-│   ├── useLocalStorage.ts  # Persistent storage hook
-│   ├── useWeather.ts    # Weather data fetching hook
-│   └── useCrypto.ts     # Crypto data fetching hook
-├── types/
-│   ├── video.types.ts   # Video TypeScript interfaces
-│   └── widgets.types.ts # Widgets TypeScript interfaces
-├── data/
-│   └── videos.ts        # Mock video data
-└── tests/               # Unit and integration tests
+monks/
+├── src/
+│   ├── components/
+│   │   ├── VideoPlayer/         # Main video player component
+│   │   │   └── VideoPlayer.tsx  # HLS integration, playback logic
+│   │   ├── Controls/            # Custom player controls
+│   │   │   └── Controls.tsx     # Progress bar, volume, quality
+│   │   ├── VideoList/           # Video library grid
+│   │   ├── BufferIndicator/     # Loading spinner overlay
+│   │   ├── ErrorBoundary/       # Global error handling
+│   │   ├── MiniPlayer/          # Picture-in-Picture support
+│   │   ├── WeatherWidget/       # Real-time weather display
+│   │   └── CryptoWidget/        # Real-time crypto prices
+│   │
+│   ├── context/
+│   │   └── VideoContext.tsx     # Global state (video, playback, history)
+│   │
+│   ├── hooks/
+│   │   ├── useHLS.ts            # HLS.js wrapper with quality management
+│   │   ├── useVideoControls.ts # Video element control abstraction
+│   │   ├── useLocalStorage.ts  # Persistent storage with sync
+│   │   ├── useWeather.ts        # Weather API integration
+│   │   └── useCrypto.ts         # Crypto API integration
+│   │
+│   ├── types/
+│   │   ├── video.types.ts       # Video, quality, error types
+│   │   └── widgets.types.ts     # Weather and crypto types
+│   │
+│   ├── data/
+│   │   └── videos.ts            # Video catalog data
+│   │
+│   ├── tests/                   # 75 tests (7 test files)
+│   │   ├── components/          # Component tests
+│   │   ├── hooks/               # Hook tests
+│   │   └── context/             # Context tests
+│   │
+│   ├── assets/                  # Images, videos, icons
+│   ├── App.tsx                  # Root component
+│   └── main.tsx                 # Application entry point
+│
+├── public/                      # Static assets
+├── .env.example                 # Environment variables template
+├── vitest.config.ts            # Vitest configuration
+├── tailwind.config.js          # Tailwind CSS configuration
+└── vite.config.ts              # Vite build configuration
 ```
 
-## How to Use
+---
+
+## 🎯 How to Use
 
 ### Watching Videos
 
-1. **Select a Video**: Click any video card from the library
-2. **Playback Controls**:
-   - Click video or spacebar to play/pause
-   - Click progress bar to seek
-   - Hover over volume icon to adjust volume
-   - Click HD icon to change quality (Auto/720p/1080p)
-   - Click PiP icon for picture-in-picture mode
-   - Click fullscreen icon for fullscreen mode
+1. **Browse Library**: Scroll through the video grid on the home page
+2. **Select Video**: Click any video card to start playback
+3. **Playback**:
+   - Click video or press `Space` to play/pause
+   - Click progress bar to seek to specific time
+   - Drag progress bar handle for precise seeking
+4. **Volume**: Hover over volume icon to reveal slider
+5. **Quality**: Click HD icon to select quality (Auto/480p/720p/1080p)
+6. **Fullscreen**: Click fullscreen icon or press `F`
+7. **Picture-in-Picture**: Click PiP icon to enable floating player
 
-### Video Quality
+### Video Quality Selection
 
-- **Auto**: Automatically adjusts quality based on network (recommended)
-- **Manual**: Choose specific quality (720p, 1080p) if available
-- Quality selection appears when multiple streams are available
+The quality selector adapts based on available streams:
 
-### History
+- **Auto** (Recommended): Automatically adjusts quality based on network speed
+- **1080p**: Full HD quality (if available in stream)
+- **720p**: HD quality (if available in stream)
+- **480p**: SD quality (if available in stream)
 
-Your last 3 watched videos appear in the "Recently Watched" section for quick access.
+### Recent History
 
-### Persistence
+Your last 3 watched videos appear at the top for quick access. History persists across browser sessions.
 
-The app remembers:
-- Last video played (auto-loads on next visit)
-- Volume level
-- Watch history
+---
 
-## Testing the Application
+## 🎥 HLS Streaming Architecture
 
-### Testing Video Playback
+### How HLS.js Works
 
-The app includes 5 public HLS streams:
+This application uses **HTTP Live Streaming (HLS)**, the industry standard for adaptive video streaming:
 
-1. **NASA TV** - Live stream from NASA
-2. **Sintel** - Fantasy short film (14:48)
-3. **Big Buck Bunny** - Comedy animation (9:56)
-4. **Tears of Steel** - Sci-fi short (12:14)
-5. **Demo Stream** - High-quality test stream
+```
+┌─────────────┐
+│   Master    │  ← .m3u8 manifest with quality variants
+│  Playlist   │
+└──────┬──────┘
+       │
+       ├─── 1080p ────→ ┌──────────────┐
+       │                │  Media       │
+       ├─── 720p  ────→ │  Playlists   │ ← Segments list (.ts files)
+       │                └──────────────┘
+       └─── 480p  ────→      │
+                              ├── segment-0.ts (2-10s video chunks)
+                              ├── segment-1.ts
+                              └── segment-n.ts
+```
 
-### Testing Features
+### Key Features
 
-**Video Controls:**
-- ✅ Play/pause with spacebar or click
-- ✅ Seek by clicking progress bar
-- ✅ Drag progress bar handle
-- ✅ Adjust volume with slider
-- ✅ Toggle mute
-- ✅ Change quality settings
-- ✅ Enter/exit fullscreen
-- ✅ Enable picture-in-picture
+1. **Adaptive Bitrate (ABR)**:
+   - Monitors network bandwidth
+   - Automatically switches quality levels
+   - Prevents buffering by downscaling when needed
 
-**State Persistence:**
-- ✅ Adjust volume, refresh page (volume preserved)
-- ✅ Watch a video, refresh page (last video loads)
-- ✅ Watch 3+ videos (history shows last 3)
+2. **Fragment Loading**:
+   - Downloads video in small chunks (2-10 seconds)
+   - Enables fast startup and seeking
+   - Allows mid-stream quality changes
 
-**Responsive Design:**
-- ✅ Resize browser window
-- ✅ Test on mobile device
-- ✅ Verify controls adapt to screen size
+3. **Error Recovery**:
+   ```typescript
+   // Network errors: Auto-retry after 1s
+   Hls.ErrorTypes.NETWORK_ERROR → startLoad()
 
-**Error Handling:**
-- ✅ Disconnect network during playback
-- ✅ Use invalid video URL
-- ✅ Check automatic recovery
+   // Media errors: Attempt recovery
+   Hls.ErrorTypes.MEDIA_ERROR → recoverMediaError()
+   ```
 
-## Running Tests
+4. **Buffer Management**:
+   - `backBufferLength: 90s` - Keeps 90s of past video in memory
+   - `maxBufferLength: 30s` - Tries to keep 30s ahead buffered
+   - Balances memory usage vs smooth playback
+
+### Browser Compatibility
+
+| Browser | Implementation | Notes |
+|---------|---------------|-------|
+| Safari 14+ | Native HLS | Uses built-in `canPlayType('application/vnd.apple.mpegurl')` |
+| Chrome 90+ | HLS.js | MSE (Media Source Extensions) |
+| Firefox 88+ | HLS.js | MSE (Media Source Extensions) |
+| Edge 90+ | HLS.js | MSE (Media Source Extensions) |
+
+---
+
+## 🧪 Testing
+
+The project includes comprehensive test coverage:
+
+### Test Statistics
+- **75 tests** across 7 test files
+- **100% pass rate**
+- **Test coverage**: ~71% of critical paths
+
+### Test Suites
+```bash
+✓ useLocalStorage.test.ts      (7 tests)   # Storage & sync
+✓ useVideoControls.test.ts     (10 tests)  # Video controls
+✓ BufferIndicator.test.tsx     (3 tests)   # Loading UI
+✓ VideoContext.test.tsx        (23 tests)  # State management
+✓ VideoList.test.tsx           (4 tests)   # Video grid
+✓ useWeather.test.ts           (12 tests)  # Weather API
+✓ useCrypto.test.ts            (16 tests)  # Crypto API
+```
+
+### Running Tests
 
 ```bash
 # Run all tests
-npm test
+npm run test
 
-# Run tests with UI
-npm test:ui
+# Watch mode with UI
+npm run test:ui
 
-# Run tests with coverage
-npm test:coverage
+# Generate coverage report
+npm run test:coverage
 ```
 
-Tests cover:
-- Hook functionality (useLocalStorage, useVideoControls)
-- Component rendering (BufferIndicator, VideoList)
-- User interactions
-- State management
+Coverage report is generated in `coverage/` directory.
 
-## Browser Support
+---
 
-| Browser | Version | HLS Support |
-|---------|---------|-------------|
-| Chrome  | 90+     | HLS.js      |
-| Firefox | 88+     | HLS.js      |
-| Safari  | 14+     | Native      |
-| Edge    | 90+     | HLS.js      |
+## 🌐 Production Deployment
 
-### Feature Support
+### Vercel Deployment (Current)
 
-- **Picture-in-Picture**: Chrome 70+, Safari 13.1+, Edge 79+
-- **Fullscreen API**: All modern browsers
-- **Local Storage**: All browsers
+**Live URL**: [https://monks-vod.vercel.app/](https://monks-vod.vercel.app/)
 
-## Configuration
+#### Deploy Your Own
+
+1. **Push to GitHub**
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Import Project"
+   - Select your repository
+   - Vercel auto-detects Vite configuration
+
+3. **Configure Environment Variables**
+
+In Vercel Dashboard → Settings → Environment Variables:
+
+```
+VITE_OPENWEATHER_API_KEY = your_openweather_key
+VITE_WEATHER_CITY = Madrid
+VITE_COINGECKO_API_KEY = your_coingecko_key
+```
+
+Select all environments: **Production**, **Preview**, **Development**
+
+4. **Deploy**
+   - Click "Deploy"
+   - Vercel automatically builds and deploys
+   - Get your live URL
+
+#### Manual Deploy with Vercel CLI
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login
+vercel login
+
+# Deploy
+vercel
+
+# Production deployment
+vercel --prod
+```
+
+### Other Platforms
+
+<details>
+<summary><b>Netlify</b></summary>
+
+```bash
+# Build command
+npm run build
+
+# Publish directory
+dist
+
+# Environment variables (same as Vercel)
+VITE_OPENWEATHER_API_KEY
+VITE_WEATHER_CITY
+VITE_COINGECKO_API_KEY
+```
+</details>
+
+<details>
+<summary><b>GitHub Pages</b></summary>
+
+1. Install `gh-pages`:
+```bash
+npm install -D gh-pages
+```
+
+2. Add to `package.json`:
+```json
+"scripts": {
+  "deploy": "npm run build && gh-pages -d dist"
+}
+```
+
+3. Deploy:
+```bash
+npm run deploy
+```
+</details>
+
+---
+
+## 🎨 Customization
 
 ### Adding New Videos
 
 Edit `src/data/videos.ts`:
 
 ```typescript
-{
-  id: 'unique-id',
-  title: 'Video Title',
-  description: 'Video description',
-  thumbnail: 'https://example.com/thumbnail.jpg',
-  url: 'https://example.com/video.m3u8',
-  duration: '10:00',
-}
+export const videos: Video[] = [
+  {
+    id: 'unique-id',
+    title: 'Your Video Title',
+    description: 'Compelling description',
+    thumbnail: 'https://example.com/thumbnail.jpg',
+    url: 'https://example.com/video.m3u8',  // HLS manifest URL
+    duration: '12:34',
+  },
+  // ... more videos
+];
 ```
 
-### Customizing Colors
+**Requirements**:
+- URL must be a valid HLS manifest (`.m3u8`)
+- CORS headers must allow your domain
+- Thumbnail should be 16:9 aspect ratio
 
-Edit `tailwind.config.js` to change the color scheme:
+### Customizing Theme Colors
+
+Edit `tailwind.config.js`:
 
 ```javascript
 colors: {
   monks: {
-    purple: '#3C0C60',        // Primary color
-    'purple-light': '#DFBBFE', // Accent color
-    // ... other colors
+    purple: '#3C0C60',        // Primary brand color
+    'purple-light': '#DFBBFE', // Accent/hover
+    blue: '#001D38',           // Secondary dark
+    'blue-sky': '#CBF6FF',     // Secondary light
+    'gray-dark': '#2D2D2D',    // Background
+    'gray-light': '#EAE8E4',   // Text muted
   },
 }
 ```
 
-## Performance
+### HLS.js Configuration
 
+Edit `src/hooks/useHLS.ts`:
+
+```typescript
+const hls = new Hls({
+  enableWorker: true,           // Use Web Worker for parsing
+  lowLatencyMode: false,        // For live streams
+  backBufferLength: 90,         // Keep 90s of past video
+  maxBufferLength: 30,          // Try to buffer 30s ahead
+  maxMaxBufferLength: 600,      // Max buffer limit
+
+  // Retry configuration
+  manifestLoadingMaxRetry: 3,
+  manifestLoadingRetryDelay: 1000,
+  levelLoadingMaxRetry: 3,
+  fragLoadingMaxRetry: 6,
+});
+```
+
+---
+
+## 📊 Performance Optimization
+
+### Build Optimizations
+- **Code Splitting**: Dynamic imports for routes
+- **Tree Shaking**: Unused code elimination
+- **Minification**: UglifyJS for production
+- **Compression**: Gzip/Brotli for static assets
+
+### Runtime Optimizations
+- **React.memo**: Prevent unnecessary re-renders
+- **useMemo/useCallback**: Memoize expensive computations
 - **Lazy Loading**: Components load on demand
-- **Memoization**: Optimized re-renders with React.memo and useMemo
-- **HLS Optimization**: Adaptive bitrate reduces buffering
-- **Cleanup**: Proper resource disposal prevents memory leaks
+- **HLS Worker**: Offload parsing to Web Worker
 
-## Troubleshooting
+### Resource Management
+- **HLS Cleanup**: Destroys HLS instance on unmount
+- **Event Cleanup**: Removes all event listeners
+- **Timer Cleanup**: Clears intervals on unmount
+- **Memory Management**: Proper buffer disposal
+
+---
+
+## 🐛 Troubleshooting
 
 ### Video Won't Play
 
-- Check internet connection
-- Try a different video
-- Check browser console for errors
-- Verify CORS headers on video server
+**Symptoms**: Black screen, no playback
 
-### Controls Not Appearing
+**Solutions**:
+1. Check browser console for errors
+2. Verify video URL is accessible (try in browser)
+3. Check CORS headers on video server
+4. Try a different video to isolate issue
+5. Check internet connection
 
-- Move mouse over video player
-- Check if auto-hide is active (they reappear on hover)
+### Quality Selector Not Appearing
 
-### Quality Selection Missing
+**Reason**: Stream only has single quality
 
-- Quality options only appear if stream has multiple quality levels
-- Some streams only have single quality
+**Solution**: Quality selector only appears when multiple quality variants exist in the HLS manifest.
+
+### Controls Not Showing
+
+**Reason**: Auto-hide is active
+
+**Solution**: Move mouse over player area - controls will reappear.
+
+### API Keys Not Working
+
+**Vercel/Netlify**:
+1. Check environment variables are set in platform dashboard
+2. Verify variable names match exactly (including `VITE_` prefix)
+3. Redeploy after adding variables
+
+**Local Development**:
+1. Check `.env` file exists
+2. Restart dev server after changing `.env`
+3. Verify API keys are valid
 
 ### Build Errors
 
 ```bash
-# Clear node_modules and reinstall
+# Clear cache and reinstall
 rm -rf node_modules package-lock.json
 npm install
+
+# Clear Vite cache
+rm -rf node_modules/.vite
+npm run dev
 ```
-
-## Production Deployment
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-The `dist/` folder contains optimized production files.
-
-### Deploy to Vercel/Netlify
-
-1. Connect repository
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Deploy
-
-### Environment Variables
-
-**Weather Widget (Optional)**:
-- `VITE_OPENWEATHER_API_KEY`: Your OpenWeatherMap API key ([Get free key](https://openweathermap.org/api))
-- `VITE_WEATHER_CITY`: Default city for weather data (default: Madrid)
-
-**Crypto Widget**: No API key required - uses CoinGecko's free API
-
-**Video URLs**: All video URLs are in code (no environment variables needed)
-
-## License
-
-MIT License - feel free to use for personal or commercial projects.
-
-## Credits
-
-- Design inspired by [Monks.com](https://www.monks.com)
-- Video streams from public test sources
-- Built with React, TypeScript, HLS.js, and Tailwind CSS
 
 ---
 
+## 📄 License
+
+MIT License - Free to use for personal and commercial projects.
+
+---
+
+## 🙏 Credits & Acknowledgments
+
+- **Design Inspiration**: [Monks.com](https://www.monks.com)
+- **Video Streams**: Public domain test videos
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Built with**: React, TypeScript, HLS.js, Tailwind CSS, Vite
+
+---
+
+## 📞 Support
+
+- **Live Demo**: [https://monks-vod.vercel.app/](https://monks-vod.vercel.app/)
+- **Issues**: Open an issue on GitHub
+- **Documentation**: See [CLAUDE.md](./CLAUDE.md) for development guidelines
+
+---
+
+<div align="center">
+
 **Built with ❤️ for modern video streaming**
+
+[![View Demo](https://img.shields.io/badge/View_Live_Demo-→-black?style=for-the-badge)](https://monks-vod.vercel.app/)
+
+</div>
