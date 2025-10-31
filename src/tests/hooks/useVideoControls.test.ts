@@ -86,4 +86,80 @@ describe('useVideoControls', () => {
     expect(mockVideo.currentTime).toBe(30);
     expect(onTimeUpdate).toHaveBeenCalledWith(30);
   });
+
+  it('should enter fullscreen when not in fullscreen', async () => {
+    Object.defineProperty(document, 'fullscreenElement', {
+      value: null,
+      writable: true,
+      configurable: true,
+    });
+
+    const { result } = renderHook(() =>
+      useVideoControls({ videoRef })
+    );
+
+    await result.current.toggleFullscreen();
+
+    expect(mockVideo.requestFullscreen).toHaveBeenCalled();
+  });
+
+  it('should exit fullscreen when already in fullscreen', async () => {
+    const mockExitFullscreen = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(document, 'fullscreenElement', {
+      value: mockVideo,
+      writable: true,
+      configurable: true,
+    });
+    Object.defineProperty(document, 'exitFullscreen', {
+      value: mockExitFullscreen,
+      writable: true,
+      configurable: true,
+    });
+
+    const { result } = renderHook(() =>
+      useVideoControls({ videoRef })
+    );
+
+    await result.current.toggleFullscreen();
+
+    expect(mockExitFullscreen).toHaveBeenCalled();
+  });
+
+  it('should toggle picture-in-picture when enabled', async () => {
+    Object.defineProperty(document, 'pictureInPictureElement', {
+      value: null,
+      writable: true,
+      configurable: true,
+    });
+    Object.defineProperty(document, 'pictureInPictureEnabled', {
+      value: true,
+      writable: true,
+      configurable: true,
+    });
+
+    const { result } = renderHook(() =>
+      useVideoControls({ videoRef })
+    );
+
+    await result.current.togglePiP();
+
+    expect(mockVideo.requestPictureInPicture).toHaveBeenCalled();
+  });
+
+  it('should handle null video ref gracefully', () => {
+    const nullVideoRef = { current: null };
+    const { result } = renderHook(() =>
+      useVideoControls({ videoRef: nullVideoRef })
+    );
+
+    // None of these should throw errors
+    expect(() => result.current.togglePlay()).not.toThrow();
+    expect(() => result.current.play()).not.toThrow();
+    expect(() => result.current.pause()).not.toThrow();
+    expect(() => result.current.seek(10)).not.toThrow();
+    expect(() => result.current.setVolume(0.5)).not.toThrow();
+    expect(() => result.current.toggleMute()).not.toThrow();
+    expect(() => result.current.toggleFullscreen()).not.toThrow();
+    expect(() => result.current.togglePiP()).not.toThrow();
+  });
 });

@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 describe('useLocalStorage', () => {
@@ -51,4 +51,36 @@ describe('useLocalStorage', () => {
 
     expect(result.current[0]).toEqual({ name: 'updated', value: 100 });
   });
+
+  it('should sync across tabs with storage event', () => {
+    const { result } = renderHook(() => useLocalStorage('test-key', 'initial'));
+
+    // Simulate storage event from another tab
+    act(() => {
+      const storageEvent = new StorageEvent('storage', {
+        key: 'test-key',
+        newValue: JSON.stringify('from-another-tab'),
+        oldValue: JSON.stringify('initial'),
+      });
+      window.dispatchEvent(storageEvent);
+    });
+
+    expect(result.current[0]).toBe('from-another-tab');
+  });
+
+  it('should handle JSON parse errors gracefully', () => {
+    // Set invalid JSON in localStorage
+    localStorage.setItem('test-key', 'invalid-json{');
+
+    // Suppress console.error for this test
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { result } = renderHook(() => useLocalStorage('test-key', 'fallback'));
+
+    // Should return initial value when parse fails
+    expect(result.current[0]).toBe('fallback');
+
+    consoleSpy.mockRestore();
+  });
+
 });
