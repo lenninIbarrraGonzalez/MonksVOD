@@ -24,6 +24,9 @@ A modern, production-ready Video on Demand (VOD) streaming application built wit
 - ✅ **Responsive Design**: Works on desktop, tablet, and mobile
 - ✅ **Loading Indicators**: Visual feedback during buffering
 - ✅ **Smooth Animations**: Polished transitions and interactions
+- ✅ **Real-time Widgets**: Live weather and cryptocurrency data
+  - **Weather Widget**: Current conditions, temperature, humidity, wind speed (auto-updates every 10 min)
+  - **Crypto Widget**: Top 5 cryptocurrencies with live prices and 24h changes (auto-updates every 30 sec)
 
 ### Design
 - ✅ **Monks-Inspired Theme**: Purple-accented dark theme
@@ -60,7 +63,24 @@ cd monks
 npm install
 ```
 
-3. **Start development server**
+3. **Configure environment variables (Optional - for Weather Widget)**
+```bash
+# Copy the example file
+cp .env.example .env
+
+# Edit .env and add your OpenWeatherMap API key
+# Get a free API key at: https://openweathermap.org/api
+```
+
+Edit `.env`:
+```env
+VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
+VITE_WEATHER_CITY=Madrid  # Or your preferred city
+```
+
+**Note**: The Crypto Widget works without API keys using CoinGecko's free API.
+
+4. **Start development server**
 ```bash
 npm run dev
 ```
@@ -96,15 +116,20 @@ src/
 │   ├── Controls/        # Custom player controls
 │   ├── BufferIndicator/ # Loading spinner
 │   ├── ErrorBoundary/   # Error handling
-│   └── MiniPlayer/      # Picture-in-Picture support
+│   ├── MiniPlayer/      # Picture-in-Picture support
+│   ├── WeatherWidget/   # Real-time weather widget
+│   └── CryptoWidget/    # Real-time cryptocurrency widget
 ├── context/
 │   └── VideoContext.tsx # Global state management
 ├── hooks/
 │   ├── useHLS.ts        # HLS.js integration hook
 │   ├── useVideoControls.ts # Video element control hook
-│   └── useLocalStorage.ts  # Persistent storage hook
+│   ├── useLocalStorage.ts  # Persistent storage hook
+│   ├── useWeather.ts    # Weather data fetching hook
+│   └── useCrypto.ts     # Crypto data fetching hook
 ├── types/
-│   └── video.types.ts   # TypeScript interfaces
+│   ├── video.types.ts   # Video TypeScript interfaces
+│   └── widgets.types.ts # Widgets TypeScript interfaces
 ├── data/
 │   └── videos.ts        # Mock video data
 └── tests/               # Unit and integration tests
@@ -297,7 +322,13 @@ The `dist/` folder contains optimized production files.
 
 ### Environment Variables
 
-No environment variables required - all video URLs are in code.
+**Weather Widget (Optional)**:
+- `VITE_OPENWEATHER_API_KEY`: Your OpenWeatherMap API key ([Get free key](https://openweathermap.org/api))
+- `VITE_WEATHER_CITY`: Default city for weather data (default: Madrid)
+
+**Crypto Widget**: No API key required - uses CoinGecko's free API
+
+**Video URLs**: All video URLs are in code (no environment variables needed)
 
 ## License
 

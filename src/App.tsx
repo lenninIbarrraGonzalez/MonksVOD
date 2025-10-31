@@ -3,6 +3,8 @@ import { VideoProvider, useVideoContext } from './context/VideoContext';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import { VideoList } from './components/VideoList/VideoList';
+import { WeatherWidget } from './components/WeatherWidget/WeatherWidget';
+import { CryptoWidget } from './components/CryptoWidget/CryptoWidget';
 import { videos } from './data/videos';
 import { BiVideo } from 'react-icons/bi';
 
@@ -73,6 +75,12 @@ function AppContent() {
                 </p>
               </div>
             )}
+
+            {/* Real-time Widgets */}
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <WeatherWidget />
+              <CryptoWidget />
+            </div>
           </div>
 
           {/* Video List Sidebar */}
